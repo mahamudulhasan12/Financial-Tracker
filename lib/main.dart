@@ -1,4 +1,4 @@
-import 'package:financial_tracker/view/splash_screen.dart';
+import 'package:financial_tracker/view/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
