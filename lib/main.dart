@@ -1,3 +1,4 @@
+import 'package:financial_tracker/view/authentation_screen/registation/registation_screen.dart';
 import 'package:financial_tracker/view/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      home:SplashScreen(),
+      home:RegisterScreen(),
     );
   }
 }
