@@ -1,3 +1,4 @@
+import 'package:financial_tracker/custom_widget/apptext.dart';
 import 'package:flutter/material.dart';
 
 class TranscationScreen extends StatefulWidget {
@@ -10,6 +11,10 @@ class TranscationScreen extends StatefulWidget {
 class _TranscationScreenState extends State<TranscationScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(
+        child: AppText(text: "Transcations",fontSize: 15,fontWeight: FontWeight.bold,),
+      ),
+    );
   }
 }
