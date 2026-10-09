@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppText(
-                  text: 'Hello, Tanvir',
+                  text: 'Hello, Mahamudul',
                   fontSize: 18,
                   colors: Colors.white,
                   fontWeight: FontWeight.bold,
