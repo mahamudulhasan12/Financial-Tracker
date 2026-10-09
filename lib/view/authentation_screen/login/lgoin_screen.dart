@@ -171,7 +171,7 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 25),
+             SizedBox(height: 25),
           ],
         ),
       ),
