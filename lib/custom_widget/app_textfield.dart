@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
-
-
   const AppTextField({
     super.key,
     required this.hintText,
@@ -10,8 +8,11 @@ class AppTextField extends StatelessWidget {
     this.keyboardType,
     this.obscureText = false,
     this.prefixIcon,
-    this.suffixIcon, this.filled, this.color,
-
+    this.suffixIcon,
+    this.filled,
+    this.color,
+    this.readOnly = false,
+    this.onTap,
   });
 
   final String hintText;
@@ -21,8 +22,9 @@ class AppTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool? filled;
-  final Color ?color;
-
+  final Color? color;
+  final bool readOnly;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,25 +32,23 @@ class AppTextField extends StatelessWidget {
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText,
+      readOnly: readOnly,
+      onTap: onTap,
       decoration: InputDecoration(
         hintText: hintText,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         filled: filled ?? true,
-        fillColor:color ?? Colors.grey.shade100,
+        fillColor: color ?? Colors.grey.shade100,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(
-            color: Colors.blue,
-            width: 1.5,
-          ),
+          borderSide: const BorderSide(color: Colors.blue, width: 1.5),
         ),
       ),
     );
   }
 }
-

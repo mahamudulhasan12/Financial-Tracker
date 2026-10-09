@@ -1,7 +1,11 @@
 import 'package:financial_tracker/custom_widget/app_textfield.dart';
+import 'package:financial_tracker/view/authentation_screen/registation/registation_screen.dart';
+import 'package:financial_tracker/view/homeScren/home_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../custom_widget/apptext.dart';
 import 'package:get/get.dart';
+
+import '../../BottonNavigation Screen/button_navigation_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -24,17 +28,17 @@ class LoginScreen extends StatelessWidget {
             // Back Button
             const SizedBox(height: 10),
 
-            Align(
-              alignment: Alignment.centerLeft,
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.arrow_back_ios_new,
-                  size: 21,
-                  color: Colors.black,
-                ),
-              ),
-            ),
+            // Align(
+            //   alignment: Alignment.centerLeft,
+            //   child: IconButton(
+            //     onPressed: () {},
+            //     icon: const Icon(
+            //       Icons.arrow_back_ios_new,
+            //       size: 21,
+            //       color: Colors.black,
+            //     ),
+            //   ),
+            // ),
 
             SizedBox(height: size.height * 0.06),
 
@@ -123,7 +127,7 @@ class LoginScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  //
+                  Get.to(NavigatonScreen());
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff064D82),
@@ -155,7 +159,7 @@ class LoginScreen extends StatelessWidget {
 
                 GestureDetector(
                   onTap: () {
-                    Get.back();
+                    Get.to(RegisterScreen());
                   },
                   child: const AppText(
                     text: 'Create Account',

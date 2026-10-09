@@ -1,7 +1,8 @@
+import 'package:financial_tracker/view/authentation_screen/login/lgoin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../home_screen.dart';
+import '../homeScren/home_screen.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2),()=>Get.off(()=>HomeScreen()));
+    Future.delayed(Duration(seconds: 2),()=>Get.off(()=>LoginScreen()));
      
   }
   @override
