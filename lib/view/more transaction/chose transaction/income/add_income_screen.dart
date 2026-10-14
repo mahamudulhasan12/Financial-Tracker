@@ -1,3 +1,4 @@
+import 'package:financial_tracker/custom_widget/apptext.dart';
 import 'package:flutter/material.dart';
 
 class AddIncomeScreen extends StatefulWidget {
@@ -10,6 +11,10 @@ class AddIncomeScreen extends StatefulWidget {
 class _AddIncomeScreenState extends State<AddIncomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Scaffold(
+      body: Center(
+        child: AppText(text: "Income"),
+      ),
+    );
   }
 }
