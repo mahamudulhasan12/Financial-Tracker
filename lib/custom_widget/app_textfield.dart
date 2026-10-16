@@ -4,7 +4,7 @@ class AppTextField extends StatelessWidget {
   const AppTextField({
     super.key,
     required this.hintText,
-    this.controller,
+    required this.controller,
     this.keyboardType,
     this.obscureText = false,
     this.prefixIcon,
@@ -12,11 +12,11 @@ class AppTextField extends StatelessWidget {
     this.filled,
     this.color,
     this.readOnly = false,
-    this.onTap,
+    this.onTap, this.borderSide, this.focuseBorder,
   });
 
   final String hintText;
-  final TextEditingController? controller;
+  final TextEditingController controller;
   final TextInputType? keyboardType;
   final bool obscureText;
   final Widget? prefixIcon;
@@ -25,6 +25,8 @@ class AppTextField extends StatelessWidget {
   final Color? color;
   final bool readOnly;
   final VoidCallback? onTap;
+  final BorderSide ? borderSide;
+  final BorderSide ? focuseBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +44,11 @@ class AppTextField extends StatelessWidget {
         fillColor: color ?? Colors.grey.shade100,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none,
+          borderSide: borderSide ?? BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.blue, width: 1.5),
+          borderSide: focuseBorder ?? BorderSide(color: Colors.blue, width: 1.5),
         ),
       ),
     );

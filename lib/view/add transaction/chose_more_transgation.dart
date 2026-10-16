@@ -1,11 +1,13 @@
 
-import 'package:financial_tracker/view/more%20transaction/chose%20transaction/income/add_income_screen.dart';
-import 'package:financial_tracker/view/more%20transaction/widget/transaction_button.dart';
+import 'package:financial_tracker/view/add%20transaction/chose%20transaction/expense/add_expense_screen.dart';
+import 'package:financial_tracker/view/add%20transaction/chose%20transaction/income/add_income_screen.dart';
+import 'package:financial_tracker/view/add%20transaction/chose%20transaction/transfer/transfer_screen.dart';
+import 'package:financial_tracker/view/add%20transaction/widget/transaction_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AddExpenseScreen extends StatelessWidget {
-  const AddExpenseScreen({super.key});
+class ChoseMoreTransgation extends StatelessWidget {
+  const ChoseMoreTransgation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -85,8 +87,7 @@ class AddExpenseScreen extends StatelessWidget {
                   color: Colors.red,
                   background: const Color(0xffFDECEC),
                   onTap: () {
-                    // Navigator.pop(context);
-                    // এখানে Expense Screen খুলবে
+                    Get.to(AddExpenseScreen());
                   },
                 ),
               ),
@@ -101,8 +102,7 @@ class AddExpenseScreen extends StatelessWidget {
                   color: const Color(0xff064D82),
                   background: const Color(0xffE7F0FA),
                   onTap: () {
-                    // Navigator.pop(context);
-                    // এখানে Transfer Screen খুলবে
+                    Get.to(TransferScreen());
                   },
                 ),
               ),

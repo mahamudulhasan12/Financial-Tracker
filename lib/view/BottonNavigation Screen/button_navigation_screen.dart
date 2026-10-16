@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:financial_tracker/view/Reports/reorts_screen.dart';
-import 'package:financial_tracker/view/more%20transaction/add_expense_screen.dart';
+import 'package:financial_tracker/view/add%20transaction/chose_more_transgation.dart';
 import 'package:financial_tracker/view/more/more_screen.dart';
 import 'package:financial_tracker/view/transactions/transcation_screen.dart';
 // ইম্পোর্ট পাথটি অন্যান্য স্ক্রিনের মতো প্যাকেজ আকারে বা সঠিক রিলেটিভ পাথে পরিবর্তন করা হয়েছে
@@ -19,7 +19,7 @@ class _NavigatonScreenState extends State<NavigatonScreen> {
   final List<Widget> screens = [
     const HomeScreen(),
     const TranscationScreen(),
-    const AddExpenseScreen(),
+    const ChoseMoreTransgation(),
     const ReortsScreen(),
     const MoreScreen(),
   ];
