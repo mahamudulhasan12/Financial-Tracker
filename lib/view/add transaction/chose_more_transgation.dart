@@ -102,7 +102,7 @@ class ChoseMoreTransgation extends StatelessWidget {
                   color: const Color(0xff064D82),
                   background: const Color(0xffE7F0FA),
                   onTap: () {
-                    Get.to(TransferScreen());
+                    Get.to(AddTransferScreen());
                   },
                 ),
               ),
