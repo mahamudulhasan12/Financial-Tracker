@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:financial_tracker/custom_widget/app_textfield.dart';
 import 'package:financial_tracker/custom_widget/apptext.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../custom_widget/buildCustomDropdown.dart';
 import 'package:get/get.dart';
@@ -21,7 +20,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     text: "05 Oct 2024",
   );
   final TextEditingController noteController = TextEditingController();
-
+  String? selectCategory;
+  String ? selectAccount;
   // Dropdown States
   String selectedCategory = 'Salary';
   final List<String> categories = [
@@ -32,7 +32,17 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
   ];
 
   String selectedAccount = 'Bank Account';
-  final List<String> accounts = [
+  final List mainCategories = [
+    '🏠 Housing & Utilities',
+    '🍔 Food & Groceries',
+    '🚌 Transportation',
+    '🏥 Health & Medical',
+    '🎓 Education',
+    '🛍️ Shopping & Lifestyle',
+    '💳 Bills & Recharge',
+    '🎁 Entertainment & Others'
+  ];
+  final List accounts = [
     'Bank Account',
     'Cash',
     'Card',
@@ -61,13 +71,12 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(onPressed: (){
-          Get.back();
-        }, icon: Icon(
-          Icons.arrow_back_ios_new,
-          color: Colors.black,
-          size: 20,
-        ),),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.black, size: 20),
+        ),
         title: AppText(
           text: "Add Expense",
           fontSize: 20,
@@ -98,37 +107,54 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 15),
-
+                SizedBox(height: 15),
                 // 2. Category Dropdown Field
                 _buildLabel("Category"),
-                BuildCustomDropdown(
-                  value: selectedCategory,
-                  items: categories,
-                  prefixIcon: const Icon(
-                    Icons.account_balance_wallet_outlined,
-                    color: Colors.green,
+                DropdownButtonFormField<String>(
+                  value: selectCategory,
+                  style: const TextStyle(color: Colors.black, fontSize: 16), // টেক্সট স্টাইল
+                  dropdownColor: Colors.deepPurple[50],
+                  decoration: InputDecoration(
+                    labelText: 'Select Type',
+                    border: OutlineInputBorder(),
                   ),
+                  hint: Text('Choose an option'),
+                  items: mainCategories.map((item) {
+                    return DropdownMenuItem<String>(
+                      value: item,
+                      child: Text(item),
+                    );
+                  }).toList(),
                   onChanged: (value) {
-                    setState(() => selectedCategory = value!);
+                    setState(() {
+                      selectCategory = value;
+                    });
                   },
                 ),
                 SizedBox(height: 15),
-
                 _buildLabel("Account"),
-                BuildCustomDropdown(
-                  value: selectedAccount,
-                  items: accounts,
-                  prefixIcon: const Icon(
-                    Icons.precision_manufacturing,
-                    color: Colors.indigo,
+                DropdownButtonFormField<String>(
+                  value: selectAccount,
+                  style: const TextStyle(color: Colors.black, fontSize: 16), // টেক্সট স্টাইল
+                  dropdownColor: Colors.deepPurple[50],
+                  decoration: InputDecoration(
+                    labelText: 'Select Type',
+                    border: OutlineInputBorder(),
                   ),
+                  hint: Text('Choose an option'),
+                  items: accounts.map((item) {
+                    return DropdownMenuItem<String>(
+                      value: item,
+                      child: Text(item),
+                    );
+                  }).toList(),
                   onChanged: (value) {
-                    setState(() => selectedAccount = value!);
+                    setState(() {
+                      selectAccount = value;
+                    });
                   },
                 ),
-                const SizedBox(height: 15),
-
+                SizedBox(height: 15),
                 // 4. Date Field
                 _buildLabel("Date"),
                 AppTextField(
@@ -148,8 +174,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     pickDate();
                   },
                 ),
-                const SizedBox(height: 15),
-
+                SizedBox(height: 15),
                 // 5. Note Field
                 _buildLabel("Note (Optional)"),
                 AppTextField(
@@ -168,9 +193,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
               height: 55,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(
-                    0xFF0A2558,
-                  ), // Deep Blue color input target image layout অনুযায়ী
+                  backgroundColor: Color(0xFF0A2558),
+                  // Deep Blue color input target image layout অনুযায়ী
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -187,6 +211,18 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
               ),
             ),
           ),
+          Container(
+            height: 100,
+            width: MediaQuery.sizeOf(context).width,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.grey),
+            ),
+            padding: EdgeInsets.all(10),
+            child:ImagePicker(
+
+            ),
+          )
         ],
       ),
     );
@@ -204,6 +240,4 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
       ),
     );
   }
-
-// Helper Widget for Custom Dropdowns matching TextField style
 }
