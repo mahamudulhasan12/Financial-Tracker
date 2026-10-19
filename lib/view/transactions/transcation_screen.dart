@@ -118,7 +118,7 @@ class _TranscationScreenState extends State<TranscationScreen> {
                 ],
               ),
             ),
-            Center(child: Text("Search Screen Content", style: TextStyle(fontSize: 22))),
+            Center(child: Text("Expense", style: TextStyle(fontSize: 22))),
             Center(child: Text("Settings Screen Content", style: TextStyle(fontSize: 22))),
             Center(child: Text("Settings Screen Content", style: TextStyle(fontSize: 22))),
           ],
